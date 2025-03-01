@@ -63,7 +63,7 @@ export default function LoginPage() {
     const idUser = payload?.data.response.id;
 
     if (token) {
-      toast.success("¡Login exitoso!", {
+      toast.success("¡Inicio de sesión exitoso!", {
         style: {
           marginTop: '10px', 
         },

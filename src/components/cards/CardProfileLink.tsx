@@ -21,15 +21,15 @@ const Avatar = styled.div<{ urlImage: string }>`
   background-image: url(${(props) => props.urlImage}); 
   background-size: cover;
   background-position: center;
-  width: 4rem;
-  height: 4rem;
+  width: 3.6rem;
+  height: 3.6rem;
   border-radius: 10px;
 `;
 
 const ProfileName = styled.div`
   font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.25rem;
   color: ${({ theme }) => theme.colors.textSidebar};
 `;
 
@@ -46,10 +46,10 @@ const RatingSection = styled.div`
   justify-content: end;
   gap: 2rem;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 0.7rem;
 
   & h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
     margin: 0;
     color: ${({ theme }) => theme.colors.textTertiary};
     font-weight: bold;
@@ -58,7 +58,7 @@ const RatingSection = styled.div`
   & p {
     text-align: center;
     width: 100%;
-    font-size: 1rem !important;
+    font-size: 0.9rem !important;
     font-weight: 500;
     margin: 0;
     color: ${({ theme }) => theme.colors.textTertiary};
@@ -72,7 +72,7 @@ const DivRate = styled.div`
   justify-content: center;
 
   & p {
-    text-align: center;
+    text-align: end;
     width: 100%;
     font-size: 0.7rem;
   }
@@ -116,7 +116,7 @@ const CardProfileLink: React.FC<IProfileCardProps> = ({
         </div>
       </ProfileHeader>
       <RatingSection>
-        <h1>{userData?.qualification}</h1>
+        <h1>{(Math.floor(userData?.qualification * 10)) / 10}</h1>
         <DivRate>
           <p>Calificación</p>
           <RatingStars>

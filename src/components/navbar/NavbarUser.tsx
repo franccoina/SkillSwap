@@ -29,7 +29,7 @@ const NavbarContainer = styled.div`
     gap: 50px;
 
     @media (max-width: 790px) {
-        padding: 0 20px;
+        padding: 0 5px;
     }
 `;
 
@@ -69,7 +69,7 @@ const IconsContainer = styled.div`
     gap: 20px;
 
     @media (max-width: 790px) {
-        gap: 10px;
+        gap: 5px;
     }
 `;
 
@@ -92,8 +92,9 @@ const NavList = styled.ul<{ isOpen: boolean }>`
         left: 0;
         transition: 1s ease-in-out;
         background-color: ${({ theme }) => theme.colors.bgPrimary};
-        border: 1px solid ${({ theme }) => theme.colors.textBlack};
-        padding: 1rem !important;
+        border: 1px solid ${({ theme }) => theme.colors.borderLogobar};
+        padding: 20px;
+        padding-left: 8px;
         gap: 20px;
         animation: move 1s ease-in-out;
         z-index: 100;
@@ -208,8 +209,8 @@ export const NavbarUser: React.FC = () => {
             </NavList>
 
             <IconsContainer>
-                <StyledIconNavLink onClick={openSidebarSettings} href="#" icon={<SettingsIcon />} />
                 <StyledIconNavLink href="/user/legal" label="USER/LEGAL" icon={<InfoIcon />} />
+                <StyledIconNavLink onClick={openSidebarSettings} href="#" icon={<SettingsIcon />} />
             </IconsContainer>
         </NavbarContainer>
     );

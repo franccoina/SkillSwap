@@ -11,7 +11,7 @@ interface LogoutButtonProps {
 }
 
 const Button = styled.button`
-  padding: 5px 10px;
+  padding: 7px 12px;
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.colors.textWhite};
@@ -19,7 +19,7 @@ const Button = styled.button`
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   transition: background-color 0.3s;
   background-color: ${({ theme }) => theme.colors.bgNavbar};

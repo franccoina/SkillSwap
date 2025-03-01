@@ -3,7 +3,7 @@ import styled from "styled-components";
 import React from "react";
 
 const PageWrapper = styled.div`
-    margin-top: 80px;
+    margin-top: 72px;
 `;
 
 const FooterContainer = styled.div`
@@ -24,6 +24,7 @@ const FooterText = styled.p`
     margin: 0;
     padding: 20px 0;
     width: 50%;
+    min-width: 180px;
     border-top: 1px solid ${({ theme }) => theme.colors.bgGray};
     color: ${({ theme }) => theme.colors.bgGray};
 

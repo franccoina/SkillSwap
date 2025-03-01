@@ -34,56 +34,6 @@ const DivCardContent = styled.div`
   > :nth-child(2){
     border-bottom: 1px solid ${({ theme }) => theme.colors.textTertiary} !important;
   }
-
-  > :nth-child(3){
-    border-bottom: 1px solid ${({ theme }) => theme.colors.textTertiary} !important;
-  }
-`;
-
-const Connections = styled.div`
-  display: flex;
-  justify-content: start;
-  gap: 2rem;
-  text-align: center;
-  padding-bottom: 1rem;
-
-  & h1 {
-    width: 70px;
-    filter: grayscale() brightness(0.95);
-    font-size: 3rem;
-    margin: 0;
-    font-weight: bold;
-  }
-
-  & p {
-    text-align: center;
-    width: 100%;
-    font-size: 1rem !important;
-    font-weight: 500;
-    margin: 0;
-    color: ${({ theme }) => theme.colors.textTertiary};
-  }
-`;
-
-const DivConnection = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  & p {
-    text-align: center;
-    width: 100%;
-    font-size: 0.7rem;
-  }
-
-  :last-child {
-    font-style: normal;
-    font-weight: bold;
-    text-align: start;
-    width: 100%;
-    font-size: 0.7rem;
-  }
 `;
 
 const RatingSection = styled.div`
@@ -91,24 +41,38 @@ const RatingSection = styled.div`
   justify-content: start;
   gap: 2rem;
   text-align: center;
-  padding-bottom: 1rem;
+  padding: 1rem;
 
   & h1 {
-    width: 70px;
-    font-size: 3rem;
+    font-size: 2.8rem;
     margin: 0;
     color: ${({ theme }) => theme.colors.textTertiary};
     font-weight: bold;
   }
 
   & p {
-    text-align: center;
     width: 100%;
-    font-size: 1rem !important;
+    font-size: 0.9rem !important;
     font-weight: 500;
     margin: 0;
     color: ${({ theme }) => theme.colors.textTertiary};
   }
+`;
+
+const ConnectionsSection = styled.div`
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.colors.textTertiary};
+  background-color: ${({ theme }) => theme.colors.bgPrimary};
+  border: none;
+  border-top: 1px solid ${({ theme }) => theme.colors.textBlack};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.textBlack};
+  font-size: 0.8rem;
+  font-weight: 500;
+  width:100%;
+  margin: 0;
 `;
 
 const DivRate = styled.div`
@@ -118,9 +82,8 @@ const DivRate = styled.div`
   justify-content: center;
 
   & p {
-    text-align: center;
+    text-align: start;
     width: 100%;
-    font-size: 0.7rem;
   }
 `;
 
@@ -148,11 +111,11 @@ const SkillsSection = styled.div`
 `;
 
 const SubTitle = styled.h4`
-  font-size: 1.1rem;
-  color: ${({ theme }) => theme.colors.textSecondary};
-  font-weight: bold;
-  padding-left: 1rem;
-  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: ${({ theme }) => theme.colors.textTertiary};
+  font-weight: 500;
+  padding: 0 1rem;
+  margin: 0;
   margin-top: 1rem;
 `;
 
@@ -160,10 +123,10 @@ const P = styled.p`
   color: ${({ theme }) => theme.colors.textSecondary};
   font-size: 0.9rem;
   font-weight: 300;
-  font-style: italic;
   padding: 0;
-  padding-left: 1rem;
   margin: 0;
+  margin-top: 0.3rem;
+  padding: 0 1rem;
 `;
 
 interface CardProps {
@@ -177,17 +140,12 @@ const MatchCard: React.FC<CardProps> = ({ description, skills, rating, countMatc
   return (
     <CardContainer>
       <ScrollContainer overflowY="auto" overflowX='auto' marginY="5px" style={{ maxHeight: '100%' }}>
+      <ConnectionsSection>
+  Este perfil ha conectado con {isNaN(countMatches) ? 0 : countMatches} {countMatches === 1 ? "persona" : "personas"}.
+</ConnectionsSection>
         <DivCardContent>
-          <Connections>
-            <h1>🌐</h1>
-            <DivConnection>
-              <p>Conexiones</p>
-              <p># {countMatches}</p>
-            </DivConnection>
-          </Connections>
-
           <RatingSection>
-            <h1>{rating}</h1>
+            <h1>{(Math.floor(rating * 10)) / 10}</h1>
             <DivRate>
               <p>Calificación</p>
               <RatingStars>

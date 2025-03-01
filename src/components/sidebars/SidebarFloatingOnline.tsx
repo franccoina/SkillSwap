@@ -19,7 +19,7 @@ const OnlineSidebarContainer = styled.div`
     background: ${({ theme }) => theme.colors.bgMainOpacity};
     width: 100%;
     height: 100%;
-    animation: appear 1s ease-in-out;
+    animation: appear 1s ease;
     
     @keyframes appear {
         from {
@@ -70,7 +70,7 @@ const StatusSection = styled.div`
   justify-content: center;
   font-size: 0.7rem;
   margin-bottom: 10px;
-  gap: 1rem;
+  gap: 0.9rem;
   padding-left: 2rem;
 
   @media (max-height: 500px) {
@@ -92,7 +92,7 @@ const StatusSection = styled.div`
   }
 
   .rejected {
-    @media (max-height: 600px) {
+    @media (max-height: 510px) {
     display:none;
   }
 
@@ -105,18 +105,8 @@ const StatusSection = styled.div`
     }
   }
 
-  .accepted {
-    opacity: 0.5;
-    color: ${({ theme }) => theme.colors.textBlueDark};
-
-    & p {
-      font-weight: 500;
-      color: ${({ theme }) => theme.colors.textBlueDark};
-    }
-  }
-
   .sent {
-    @media (max-height: 600px) {
+    @media (max-height: 580px) {
     display:none;
   }
     opacity: 0.5;
@@ -125,6 +115,16 @@ const StatusSection = styled.div`
     & p {
       font-weight: 500;
       color: ${({ theme }) => theme.colors.textSecondary};
+    }
+  }
+
+  .accepted {
+    opacity: 0.5;
+    color: ${({ theme }) => theme.colors.textBlueDark};
+
+    & p {
+      font-weight: 500;
+      color: ${({ theme }) => theme.colors.textBlueDark};
     }
   }
 
@@ -144,7 +144,7 @@ const H2StatusSection = styled.h2`
   font-weight: 500;
   margin: 0;
   margin-bottom: 0.1rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 `;
 
 const BoxLogout = styled.h2`
@@ -268,13 +268,13 @@ const ProfileSidebar: React.FC<ProfileSidebarProps> = ({
               userData={userMetrics}
             />
             <StatusSection>
-              <div className="status-item rejected">
-                <H2StatusSection>Rechazadas</H2StatusSection>
+            <div className="status-item inbox">
+                <H2StatusSection>Recibidas</H2StatusSection>
                 <div className="status-content">
-                  <FaTimes className="icon" />
+                  <FaClock className="icon" />
                   <p>
-                    {userData.solicitudes.conteoCanceladas}:{" "}
-                    {userData.solicitudes.ultimaCancelada ?? "N/A"}
+                    {userData.solicitudes.conteoPendientes}:{" "}
+                    {userData.solicitudes.ultimaPendiente ?? "N/A"}
                   </p>
                 </div>
               </div>
@@ -288,6 +288,16 @@ const ProfileSidebar: React.FC<ProfileSidebarProps> = ({
                   </p>
                 </div>
               </div>
+              <div className="status-item rejected">
+                <H2StatusSection>Rechazadas</H2StatusSection>
+                <div className="status-content">
+                  <FaTimes className="icon" />
+                  <p>
+                    {userData.solicitudes.conteoCanceladas}:{" "}
+                    {userData.solicitudes.ultimaCancelada ?? "N/A"}
+                  </p>
+                </div>
+              </div>
               <div className="status-item sent">
                 <H2StatusSection>Enviadas</H2StatusSection>
                 <div className="status-content">
@@ -295,17 +305,6 @@ const ProfileSidebar: React.FC<ProfileSidebarProps> = ({
                   <p>
                     {userData.solicitudes.conteoEnviadas}:{" "}
                     {userData.solicitudes.ultimoEnviado ?? "N/A"}
-
-                  </p>
-                </div>
-              </div>
-              <div className="status-item inbox">
-                <H2StatusSection>Recibidas</H2StatusSection>
-                <div className="status-content">
-                  <FaClock className="icon" />
-                  <p>
-                    {userData.solicitudes.conteoPendientes}:{" "}
-                    {userData.solicitudes.ultimaPendiente ?? "N/A"}
                   </p>
                 </div>
               </div>

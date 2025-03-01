@@ -27,6 +27,8 @@ const FullScreenLoader = styled.div`
     background-image: url("https://i.pinimg.com/originals/2a/23/d6/2a23d6dbca72cfad0bc1028fbfefc962.gif");
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: center;
     opacity: 0.85;
     position: fixed;
     top: 0;
@@ -37,28 +39,32 @@ const FullScreenLoader = styled.div`
 
 // Estilos para el contenedor del texto
 const LoadingText = styled.h1`
-    color: white;
-    font-weight: 500;
-    padding-right: 50px;
-    font-size: clamp(1.8rem, 2.8vw, 3.2rem);
     display: flex;
-    gap: 0.2rem;
+    gap: 0.3rem;
+    font-size: clamp(0.8rem, 2vw, 3rem);
+    font-family: ${urbanist.style.fontFamily};
 `;
 
-// Estilo para cada letra con animación individual
+// Estilo para cada letra en un cuadro negro con animación
 const Letter = styled.span<{ delay: number }>`
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 600;
     animation: ${waveAnimation} 1.2s ease-in-out infinite;
     animation-delay: ${({ delay }) => delay}s;
-    font-family: ${urbanist.style.fontFamily};
+    border-radius: 0.4rem;
 `;
 
 const LoadingScreen = () => {
     return (
         <FullScreenLoader>
             <LoadingText>
-                {Array.from('CARGANDO...').map((letter, index) => (
-                    // Cada letra con un retraso diferente
+                {Array.from('CARGANDO').map((letter, index) => (
                     <Letter key={index} delay={index * 0.1}>{letter}</Letter>
                 ))}
             </LoadingText>
@@ -67,4 +73,3 @@ const LoadingScreen = () => {
 };
 
 export default LoadingScreen;
-

@@ -28,7 +28,7 @@ const PagePosts = styled.section`
   & p {
     text-align: start;
     margin: 0;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     width: 80%;
     color :  ${({ theme }) => theme.colors.textWhite};
     opacity: 0.4;

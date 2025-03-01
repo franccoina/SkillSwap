@@ -16,7 +16,7 @@ const LogobarStyled = styled.div`
     border-top: solid 1px ${({ theme }) => theme.colors.borderLogobar};
 
     & h1 {
-        background: ${({ theme }) => theme.colors.gradientSecondary};
+        background: ${({ theme }) => theme.colors.gradientTertiary};
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;

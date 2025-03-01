@@ -59,8 +59,9 @@ const Container = styled.div`
     margin-top: 0 !important;
     flex-direction: column; 
     align-items: flex-start;
+    justify-content: end;
     border-radius: none;
-    height: 700px;
+    height: 552px;
   }
 `;
 
@@ -93,7 +94,7 @@ const OverlayContainer = styled.div`
     position: static;
     width: 100%;
     height: auto;
-    padding: 1rem;
+    padding: 0;
   }
 `;
 
@@ -128,7 +129,8 @@ const Div = styled.div`
   margin: 0;
 
   @media (max-width: 1070px) {
-    padding: 1.8rem;
+    padding: 0;
+    padding-top: 1.4rem;
     height: auto;
     border:0; 
   }

@@ -65,6 +65,8 @@ export const FormWrapper = styled.div`
   position: relative;
 
   @media (max-width: 1070px) {
+    height: 460px !important;
+
     & form{
         display: flex;
         flex-direction: column;

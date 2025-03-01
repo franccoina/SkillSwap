@@ -75,7 +75,7 @@ const MetricDiv = styled.div`
 `;
 
 const MetricTitle = styled.p`
-  font-weight: bold;
+  font-weight: 600;
   color: #333;
   font-size: 0.9rem;
 `;
@@ -148,14 +148,14 @@ const CardUserDiscover: React.FC = () => {
 
                 <MetricItem>
                     <MetricIcon>
-                        <FaTimes />
+                        <FaClock />
                     </MetricIcon>
                     <MetricDiv>
                         <MetricTitle>
-                            {(userMetrics!.solicitudes?.ultimaCancelada != " ") ? userMetrics!.solicitudes?.ultimaCancelada : Text}
+                            {(userMetrics!.solicitudes?.ultimaPendiente != " ") ? `${userMetrics!.solicitudes?.ultimaPendiente!.split(" ")[0]} fue tu último admirador` : Text}
                         </MetricTitle>
                         <MetricText>
-                            Cancelada · {userMetrics!.solicitudes?.conteoCanceladas}
+                            Recibidas · {userMetrics!.solicitudes?.conteoPendientes}
                         </MetricText>
                     </MetricDiv>
                 </MetricItem>
@@ -166,10 +166,24 @@ const CardUserDiscover: React.FC = () => {
                     </MetricIcon>
                     <MetricDiv>
                         <MetricTitle>
-                            {(userMetrics!.solicitudes?.ultimaAceptada != " ") ? userMetrics!.solicitudes?.ultimaAceptada : Text}
+                            {(userMetrics!.solicitudes?.ultimaAceptada != " ") ? `${userMetrics!.solicitudes?.ultimaAceptada!.split(" ")[0]} fue tu última parada` : Text}
                         </MetricTitle>
                         <MetricText>
                             Aceptadas · {userMetrics!.solicitudes?.conteoAceptadas}
+                        </MetricText>
+                    </MetricDiv>
+                </MetricItem>
+
+                <MetricItem>
+                    <MetricIcon>
+                        <FaTimes />
+                    </MetricIcon>
+                    <MetricDiv>
+                        <MetricTitle>
+                            {(userMetrics!.solicitudes?.ultimaCancelada != " ") ? `${userMetrics!.solicitudes?.ultimaCancelada!.split(" ")[0]} fue tu última pausa` : Text}
+                        </MetricTitle>
+                        <MetricText>
+                            Rechazadas · {userMetrics!.solicitudes?.conteoCanceladas}
                         </MetricText>
                     </MetricDiv>
                 </MetricItem>
@@ -180,7 +194,7 @@ const CardUserDiscover: React.FC = () => {
                     </MetricIcon>
                     <MetricDiv>
                         <MetricTitle>
-                            {(userMetrics!.solicitudes?.ultimoEnviado != " ") ? userMetrics!.solicitudes?.ultimoEnviado : Text}
+                            {(userMetrics!.solicitudes?.ultimoEnviado != " ") ? `${userMetrics!.solicitudes?.ultimoEnviado!.split(" ")[0]} fue tu última apuesta` : Text}
                         </MetricTitle>
                         <MetricText>
                             Enviadas · {userMetrics!.solicitudes?.conteoEnviadas}
@@ -188,19 +202,7 @@ const CardUserDiscover: React.FC = () => {
                     </MetricDiv>
                 </MetricItem>
 
-                <MetricItem>
-                    <MetricIcon>
-                        <FaClock />
-                    </MetricIcon>
-                    <MetricDiv>
-                        <MetricTitle>
-                            {(userMetrics!.solicitudes?.ultimaPendiente != " ") ? userMetrics!.solicitudes?.ultimaPendiente : Text}
-                        </MetricTitle>
-                        <MetricText>
-                            Pendientes · {userMetrics!.solicitudes?.conteoPendientes}
-                        </MetricText>
-                    </MetricDiv>
-                </MetricItem>
+                
             </MetricsSection>
         </CardContainer>
     );

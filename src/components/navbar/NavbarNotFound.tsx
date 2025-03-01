@@ -1,13 +1,15 @@
 'use client';
 import styled from "styled-components";
-import React, { useState } from "react";
+import React from "react";
 import StyledIconNavLink from "../ui/links/IconNavLink";
 import InfoIcon from "@/public/svg/InfoIcon";
-import OfflineProfileSidebar from "../sidebars/SidebarFloatingOffline";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../../app/redux/slices/authSlice"; 
 
 // Styled components
 const NavbarContainer = styled.div`
-    z-index: 10;
+    z-index: 11;
     position: fixed;
     width: 100%;
     height: 54px;
@@ -18,12 +20,10 @@ const NavbarContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    gap: 50px;
     border-bottom: 1px solid  ${({ theme }) => theme.colors.borderNavs};
 
     @media (max-width: 768px) {
         padding: 0 5px;
-        justify-content: end;
     }
 `;
 
@@ -48,38 +48,24 @@ const AuthLink = styled.p`
     }
 `;
 
-const SidebarLink = styled.p`
+const BackLink = styled.p`
     font-weight: 300;
     font-style: italic;
     display: flex;
     align-items: center;
-    font-size: 15px;
+    font-size: 14px;
     width: max-content;
     transition: 0.4s;
-    padding: 15px;
     gap: 10px;
-    cursor: pointer;
 
     & small {
         margin: 0;
         padding: 0;
         color: ${({ theme }) => theme.colors.textWhite};
-        cursor: pointer;
     }
 
     &:hover {
         transition: 0.4s;
-        transform: scale(0.95);
-    }
-`;
-
-const SidebarLinkContainer = styled.li`
-    width: 100px;
-    cursor: pointer;
-    list-style: none;
-
-    @media (max-width: 768px) {
-        display: none;
     }
 `;
 
@@ -101,23 +87,36 @@ const IconsContainer = styled.div`
 
 // Navbar component
 export const Navbar: React.FC = () => {
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-
-    const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
+    const dispatch = useDispatch();
+    const router = useRouter();
 
     return (
         <NavbarContainer>
-            <OfflineProfileSidebar isOpen={isModalOpen} onClose={closeModal} />
-            <SidebarLinkContainer>
-                <SidebarLink onClick={openModal}>+ <small>SkillSwap</small></SidebarLink>
-            </SidebarLinkContainer>
+            <StyledIconNavLink href="#" icon={
+                <BackLink onClick={(e) => {
+                    e.preventDefault();
+                    router.back();
+                }}>
+                    <small>Ir atrás</small>
+                </BackLink>
+            } />
             <IconsContainer>
-                <StyledIconNavLink href="/auth" label="AUTH" icon={
-                    <AuthLink><small>Iniciar sesión</small></AuthLink>
-                    } />
+                <StyledIconNavLink onClick={() => {
+                    dispatch(logoutUser());
+                    localStorage.removeItem("authToken");
+                    localStorage.removeItem("userId");
+                    localStorage.removeItem("clickedUserId");
+                
+                    localStorage.setItem("currentPage", "AUTH");
+                    localStorage.setItem('theme', 'light');
+                
+                    window.dispatchEvent(new Event('storage'));
+                }} href="/auth" label="AUTH" icon={
+                    <AuthLink><small>Iniciar Sesión</small></AuthLink>
+                } />
                 <StyledIconNavLink href="/legal" label="LEGAL" icon={<InfoIcon />} />
             </IconsContainer>
         </NavbarContainer>
     );
 };
+

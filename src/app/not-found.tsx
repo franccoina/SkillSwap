@@ -1,6 +1,10 @@
 import NotFoundScreen from "../components/notFoundScreen/NotFoundScreen"
-export default function NotFound(){
-    return(
-        <NotFoundScreen />
+import { Navbar } from "@/src/components/navbar/NavbarNotFound"
+export default function NotFound() {
+    return (
+        <>
+            <Navbar />
+            <NotFoundScreen />
+        </>
     )
 }

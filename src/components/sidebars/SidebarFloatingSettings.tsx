@@ -8,7 +8,7 @@ const NavList = styled.ul`
     text-align: start;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     margin: 0;
     padding: 0;
     padding-right: 40px;
@@ -28,18 +28,38 @@ const NavItem = styled.li`
 
 const SidebarContainer = styled.div<{ isOpen: boolean }>`
     position: fixed;
-    height: 300px;
+    height: min-content;
     width: min-content;
     top: 70px;
     right: 20px;
     border-radius: 10px;
+    background-color: ${({ theme }) => theme.colors.bgNavbar};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 8px 18px 8px;
+    animation: move-left 1s ease-in-out;
+
+    @keyframes move-left {
+        from {
+            translate: 510px;
+        }
+        to {
+            translate: 0;
+        }
+    }
+`;
+
+const SidebarContent = styled.div`
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
     background-color: ${({ theme }) => theme.colors.textWhite};
     color: ${({ theme }) => theme.colors.textSecondary};
-    border: 1px solid ${({ theme }) => theme.colors.textBlack};
     display: flex;
     align-items: start;
     justify-content: end;
-    padding: 40px 20px;
+    padding: 30px 20px;
     transition: 0.5s ease-in-out;
 `;
 
@@ -75,6 +95,7 @@ const SettingsFloatingSidebar: React.FC<SettingsSidebarProps> = ({ isOpen, onClo
 
     return (
         <SidebarContainer ref={sidebarRef} isOpen={isOpen}>
+        <SidebarContent>
             <NavList>
                 <NavItem onClick={() => changePage('PERFIL')}>
                     <StyledNavLink href="/user/profile" label="PERFIL" />
@@ -92,6 +113,7 @@ const SettingsFloatingSidebar: React.FC<SettingsSidebarProps> = ({ isOpen, onClo
                     <StyledNavLink href="/user/info" label="INFO" />
                 </NavItem>
             </NavList>
+            </SidebarContent>
         </SidebarContainer>
     );
 };

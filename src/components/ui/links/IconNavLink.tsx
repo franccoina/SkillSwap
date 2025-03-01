@@ -25,7 +25,7 @@ const IconNavLinkComponent = styled(Link)`
 
   &:hover {
     transition: 0.4s;
-    transform: scale(0.9);
+    transform: scale(0.95);
     font-weight: 700; 
   }
 `;

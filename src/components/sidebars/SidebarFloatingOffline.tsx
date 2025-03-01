@@ -13,7 +13,7 @@ const OfflineSidebarContainer = styled.div<{ isOpen: boolean }>`
   background: ${({ theme }) => theme.colors.bgMainOpacity};
   width: 100%;
   height: 100%;
-  animation: ${({ isOpen }) => (isOpen ? "appear 1s ease-in-out" : "none")};
+  animation: ${({ isOpen }) => (isOpen ? "appear 1s ease" : "none")};
 
   @keyframes appear {
     from {

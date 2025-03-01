@@ -8,7 +8,7 @@ const FullScreenLoader = styled.div`
   align-items: center;
   height: 100vh;
   width: 100%;
-  background-color: #f5f5f5;
+  background-color: ${({ theme }) => theme.colors.bgNotFound};
   position: fixed;
   top: 0;
   left: 0;
@@ -38,7 +38,7 @@ const NotFoundText = styled.div`
 `;
 
 const P = styled.p`
-  color: black;
+  color: ${({ theme }) => theme.colors.textSecondary};
   font-weight: 200;
   font-size: 1.2rem;
   text-align: center;

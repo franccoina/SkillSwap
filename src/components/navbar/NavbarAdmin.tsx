@@ -28,7 +28,7 @@ const NavbarContainer = styled.div`
     gap: 50px;
 
     @media (max-width: 790px) {
-        padding: 0 20px;
+        padding: 0 5px;
     }
 `;
 
@@ -78,7 +78,7 @@ const IconsContainer = styled.div`
     gap: 20px;
 
     @media (max-width: 790px) {
-        gap: 10px;
+        gap: 5px;
     }
 `;
 
@@ -101,8 +101,9 @@ const NavList = styled.ul<{ isOpen: boolean }>`
         left: 0;
         transition: 1s ease-in-out;
         background-color: ${({ theme }) => theme.colors.bgPrimary};
-        border: 1px solid ${({ theme }) => theme.colors.textBlack};
+        border: 1px solid ${({ theme }) => theme.colors.borderLogobar};
         padding: 20px;
+        padding-left: 8px;
         gap: 20px;
         animation: move 1s ease-in-out;
         z-index: 100;
@@ -130,14 +131,10 @@ const NavItem = styled.li`
     max-height: 54px;
     cursor: pointer;
 
-    a{
-        padding: 0;
-
-        & svg{
+        & a svg{
             width: 50px;
             height: auto;
         }
-    }
 `;
 
 const HamburgerMenu = styled.div`

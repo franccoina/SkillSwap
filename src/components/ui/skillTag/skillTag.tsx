@@ -22,15 +22,15 @@ const SkillTag = styled.p`
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    min-width: 100px;
-    max-width: 150px;
+    min-width: 105px;
+    max-width: 155px;
     text-align: center;
     margin: 5px 5px 0 0;
     padding: 5px 10px;
     border-radius: 20px;
     color: ${({ theme }) => theme.colors.textOrange};
     border: 1px solid ${({ theme }) => theme.colors.textOrange};
-    font-size: 14px;
+    font-size: 0.9rem;
 `;
 
 // Componente para mostrar la lista de skills

@@ -31,7 +31,7 @@ const StatusSection = styled.div`
   justify-content: center;
   font-size: 0.7rem;
   margin-bottom: 10px;
-  gap: 1.5rem;
+  gap: 1rem;
   padding-left: 1.5rem;
 
   .status-item {
@@ -158,12 +158,12 @@ const ProfileCard: React.FC = () => {
         userData={userData!}
       />
       <StatusSection>
-        <div className="status-item rejected">
-          <H2StatusSection>Rechazadas</H2StatusSection>
+      <div className="status-item inbox">
+          <H2StatusSection>Recibidas</H2StatusSection>
           <div className="status-content">
-            <FaTimes className="icon" />
+            <FaClock className="icon" />
             <p>
-              {userMetrics!.solicitudes.conteoCanceladas}: {userMetrics!.solicitudes.ultimaCancelada}
+              {userMetrics!.solicitudes.conteoPendientes}: {userMetrics!.solicitudes.ultimaPendiente}
             </p>
           </div>
         </div>
@@ -176,21 +176,21 @@ const ProfileCard: React.FC = () => {
             </p>
           </div>
         </div>
+        <div className="status-item rejected">
+          <H2StatusSection>Rechazadas</H2StatusSection>
+          <div className="status-content">
+            <FaTimes className="icon" />
+            <p>
+              {userMetrics!.solicitudes.conteoCanceladas}: {userMetrics!.solicitudes.ultimaCancelada}
+            </p>
+          </div>
+        </div>
         <div className="status-item sent">
           <H2StatusSection>Enviadas</H2StatusSection>
           <div className="status-content">
             <FaArrowUp className="icon" />
             <p>
               {userMetrics!.solicitudes.conteoEnviadas}: {userMetrics!.solicitudes.ultimoEnviado}
-            </p>
-          </div>
-        </div>
-        <div className="status-item inbox">
-          <H2StatusSection>Recibidas</H2StatusSection>
-          <div className="status-content">
-            <FaClock className="icon" />
-            <p>
-              {userMetrics!.solicitudes.conteoPendientes}: {userMetrics!.solicitudes.ultimaPendiente}
             </p>
           </div>
         </div>
