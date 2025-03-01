@@ -51,7 +51,7 @@ const SidebarContainer = styled.div<{ isOpen: boolean }>`
 `;
 
 const SidebarContent = styled.div`
-    height: 100%;
+    min-height: 235px !important;
     width: 100%;
     border-radius: 10px;
     background-color: ${({ theme }) => theme.colors.textWhite};
