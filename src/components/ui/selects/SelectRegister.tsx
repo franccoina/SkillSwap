@@ -27,6 +27,7 @@ const SelectStyled = styled.select`
   height: 40px;
   box-sizing: border-box;
 `;
+
 const Option = styled.option`
   padding: 1000px;
   border: 1px solid ${({ theme }) => theme.colors.bgSecondary};

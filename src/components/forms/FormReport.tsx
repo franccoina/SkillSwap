@@ -19,11 +19,14 @@ const FormContainer = styled.form`
   }
 
   & select{
-    padding: 10px;
-  border-radius: 10px;
-  border: 1px solid ${({ theme }) => theme.colors.textTertiary};
-  font-size: 1rem;
-  width: 100%;
+      padding: 10px !important;
+      border-radius: 10px !important;
+      border: 1px solid ${({ theme }) => theme.colors.textTertiary} !important;
+      background: ${({ theme }) => theme.colors.bgPrimary} !important;
+      color: ${({ theme }) => theme.colors.textSecondary} !important;
+      font-size: 14px !important;
+      width: 100% !important;
+      height: 40px !important;
   }
 `;
 
@@ -31,14 +34,15 @@ const Input = styled.input`
   border-radius: 10px;
   padding: 10px;
   border: 1px solid ${({ theme }) => theme.colors.textTertiary};
-  font-size: 1rem;
+  font-size: 14px !important;
   width: 100%;
+  height: 40px;
 `;
 
 const TextArea = styled.textarea`
   padding: 10px;
   border: 1px solid ${({ theme }) => theme.colors.textTertiary};
-  font-size: 1rem;
+  font-size: 14px !important;
   width: 100%;
   height: 70px;
   resize: none;

@@ -179,7 +179,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           <div>SkillSwap<article>.org</article></div>
           <ModalCloseButton onClick={onClose}>×</ModalCloseButton>
         </ModalHeader>
-        <ScrollContainer overflowY="auto" overflowX='auto' marginY="16px" style={{ maxHeight: '100%' }}>
+        <ScrollContainer overflowY="auto" overflowX='auto' marginY="60px 0 16px" style={{ maxHeight: '100%' }}>
         <ModalContent>
           <LeftSection>
             <TipItem>

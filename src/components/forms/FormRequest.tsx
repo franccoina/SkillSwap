@@ -21,6 +21,10 @@ const TextArea = styled.textarea`
   margin-bottom: 10px;
   border: 1px solid ${({ theme }) => theme.colors.textTertiary};
   resize: none;
+
+  @media (max-width: 600px) {
+    margin-bottom: 0;
+  }
 `;
 
 const SendButton = styled.button`

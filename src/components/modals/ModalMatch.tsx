@@ -35,6 +35,11 @@ const ModalContainer = styled.div`
   margin: 0;
   border-radius: 10px;
   padding: 0;
+
+  @media (max-width: 600px) {
+    height: 65%;
+    max-height: 335px;
+  }
 `;
 
 const ModalHeader = styled.div`
@@ -42,7 +47,7 @@ const ModalHeader = styled.div`
   background-color: ${({ theme }) => theme.colors.textSecondary};
   color: #fff;
   padding: 0.5rem;
-  padding-left: 2rem;
+  padding-left: 1rem;
   font-weight: bold;
   margin-bottom: 10px;
   display: flex;
@@ -124,6 +129,11 @@ const DivRequest = styled.div`
 
   @media (max-width: 600px) {
     width: 100%;
+    height: 100%;
+
+    & textarea{
+      min-height: 100px;
+  }
   }
 
   & textarea{
@@ -206,10 +216,10 @@ const Modal: React.FC<IModalProps> = ({ userToRequest, isOpen, onClose }) => {
       <ModalContainer>
         <ScrollContainer overflowY="auto" overflowX='auto' marginY="16px" style={{ maxHeight: '100%' }}>
           <ModalHeader>
-            Request Connection
+            Solicita Conexiones
             <ModalCloseButton onClick={onClose}>×</ModalCloseButton>
           </ModalHeader>
-          <DivRoute>C:\ User\ RequestConnection</DivRoute>
+          <DivRoute>C:\ User\ Documents\ SkillSwap</DivRoute>
           <Div>
             <DivRequest>
               {/* Pasamos onClose al formulario */}
@@ -219,11 +229,11 @@ const Modal: React.FC<IModalProps> = ({ userToRequest, isOpen, onClose }) => {
               <DivConnections>
                 {/* Información del usuario */}
                 <Connections>
-                  <div>Connections</div>
+                  <div>Conexiones</div>
                   <div>🔗 {userToRequest.countMatches}</div>
                 </Connections>
                 <RatingSection>
-                  <div>Rating</div>
+                  <div>Calificación</div>
                   <DivRating>
                     <div>{userToRequest.qualification}</div>
                     <RatingStars>

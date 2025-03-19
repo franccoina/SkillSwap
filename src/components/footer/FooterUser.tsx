@@ -26,6 +26,8 @@ const FooterStyled = styled.footer`
   }
 
   @media (max-width: 679px) {
+    padding: 120px 40px 80px 40px;
+
     article {
       display: flex;
       flex-direction: column;

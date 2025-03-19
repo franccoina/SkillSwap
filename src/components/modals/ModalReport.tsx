@@ -189,12 +189,12 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   return (
     <ModalOverlay>
         <ModalContainer>
-        <ScrollContainer overflowY="auto" overflowX='auto' marginY="16px" style={{ maxHeight: '100%' }}>
+        <ScrollContainer overflowY="auto" overflowX='auto' marginY="60px 0 16px" style={{ maxHeight: '100%' }}>
           <ModalHeader>
             <div>SkillSwap<article>.org</article></div>
             <ModalCloseButton onClick={onClose}>×</ModalCloseButton>
           </ModalHeader>
-          <DivRoute>C:\ User\ Documents\ SafetyTips</DivRoute>
+          <DivRoute>C:\ User\ Documents\ SkillSwap</DivRoute>
           <ModalContent>
             <LeftSection>
               <ReportForm closeModal={onClose} />
