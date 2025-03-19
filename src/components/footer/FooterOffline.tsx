@@ -20,14 +20,14 @@ const FooterStyled = styled.footer`
   margin-top: 50px;
 
   article {
-    padding: 120px 40px 80px 40px;
-
     display: flex;
     gap: 20px;
     text-align: center;
   }
 
   @media (max-width: 679px) {
+    padding: 120px 40px 80px 40px;
+    
     article {
       display: flex;
       flex-direction: column;

@@ -4,7 +4,7 @@ __SkillSwap__ is a modern platform designed to facilitate skill exchange, connec
 
 ## Why SkillSwap?
 
-Updating and strengthening skills is crucial, especially in a constantly evolving digital environment. SkillSwap addresses the challenges of collaborative learning, offering a smooth and effective digital experience for knowledge exchange.
+Updating and strengthening our skills is crucial, especially in a constantly evolving digital environment. SkillSwap addresses the challenges of collaborative learning, offering a smooth and effective digital experience for knowledge exchange.
 
 ## Objective
 
