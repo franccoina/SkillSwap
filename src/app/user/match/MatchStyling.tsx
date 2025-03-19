@@ -30,6 +30,14 @@ export const DivMatch = styled.div`
     flex: 1; 
     max-width: 33%; 
     min-width: 250px;
+
+    @media (max-width: 950px) {
+      max-width: 50%;
+  }
+
+  @media (max-width: 547px) {
+      min-width: 300px !important; 
+  }
   }
 
   // Estilos para el último hijo
@@ -37,5 +45,13 @@ export const DivMatch = styled.div`
     flex: 1; 
     max-width: 33%;
     min-width: 250px;
+
+    @media (max-width: 950px) {
+      max-width: 50%;
+  }
+
+    @media (max-width: 547px) {
+      min-width: 300px !important; 
+  }
   }
 `;

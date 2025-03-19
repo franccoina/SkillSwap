@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import WidgetContainer from "../../../../components/containers/WidgetContainer/WidgetContainer";
 import { getUserById, toggleUserAccountState } from "../../../api/users";
 import { FooterMain } from '@/src/components/footer/FooterMain';
+import ModalConfirm from "@/src/components/modals/ModalConfirm";
+import { toast } from "react-toastify";
 
 //Container for the whole page.tsx
-
 const PageContainer = styled.section`
   width: 100%;
   height: 100%;
@@ -62,7 +63,6 @@ const PageContainer = styled.section`
 `;
 
 //Container for page.tsx content
-
 const PageContentContainer = styled.article`
   width: 100%;
   height: 100%;
@@ -71,7 +71,6 @@ const PageContentContainer = styled.article`
 `;
 
 //Containers for banner
-
 const Banner = styled.article`
   top: 0;
   padding: 20px;
@@ -90,18 +89,12 @@ const BannerBody = styled.div`
 `;
 
 //Container for INFO content
-
 const InfoPageContainer = styled.div`
   padding-top: 150px;
-
   width: 100%;
-
   max-width: 1000px;
-
   display: flex;
-
   align-items: start;
-
   flex-direction: column;
 `;
 
@@ -121,7 +114,6 @@ const PageBody = styled.div`
 `;
 
 //Containers for Widgets and Aside
-
 const WidgetBody = styled.div`
   padding: 20px 30px;
   width: 100%;
@@ -205,6 +197,7 @@ const UserInfo = () => {
   const [accountState, setAccountState] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchAccountState = async () => {
@@ -243,8 +236,10 @@ const UserInfo = () => {
       try {
         const data = await toggleUserAccountState(idNumber, newAction);
         setAccountState(data);
+        toast.success(`Se logró ${newAction} tu cuenta con éxito.`);
       } catch (err) {
         setError(err as string);
+        toast.error(`No se pudo ${newAction} tu cuenta. Intenta de nuevo.`);
       }
     }
   };
@@ -264,6 +259,14 @@ const UserInfo = () => {
   // Render del componente
   return (
     <Container>
+      <ModalConfirm
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={() => {
+          handleToggleAccountState();
+          setIsModalOpen(false);
+        }}
+      />
       <PageContainer>
         <Banner>
           <BannerBody>
@@ -281,8 +284,8 @@ const UserInfo = () => {
                     <h4>| Estado de cuenta</h4>
 
                     <PDesc>
-                        Aquí podrás ver en que condición se encuentra tu cuenta actualmente.
-                      </PDesc>
+                      Aquí podrás ver en que condición se encuentra tu cuenta actualmente.
+                    </PDesc>
 
                     {loading ? (
                       <p>Cargando...</p>
@@ -296,7 +299,7 @@ const UserInfo = () => {
                   <DivDeactivateAccount>
                     <ButtonDeactivate
                       color={changeStateBtnColor()}
-                      onClick={handleToggleAccountState}
+                      onClick={() => setIsModalOpen(true)}
                       disabled={accountState === "Suspendido"} // Deshabilita el botón si está suspendido
                     >
                       {accountState === "Activo"

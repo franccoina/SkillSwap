@@ -2,7 +2,7 @@
 import WidgetContainer from '@/src/components/containers/WidgetContainer/WidgetContainer';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Modal from "../../../../components/modals/ModalSafety"
+import Modal from "../../../../components/modals/ModalTips"
 
 const PageContainer = styled.section`
   width: 100%;

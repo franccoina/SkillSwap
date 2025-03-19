@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { FooterOffline } from "../components/footer/FooterOffline";
 import hands_swap from "../../public/img/hands-swap.webp";
 import Image from "next/image";
-import ScrollContainer from "../components/scroll/Scroll";
 
 // ---------------------- Estilos para el contenedor principal ---------------------
 const HomeContainer = styled.div`
@@ -17,7 +16,7 @@ const HomeContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `;
 
 // Estilos para el logo y el botón
@@ -511,7 +510,6 @@ const Home = () => {
     router.push('/auth')
   }
   return (
-    <ScrollContainer overflowY="auto" overflowX='hidden' marginY='54px' style={{ height: '100%' }}>
     <HomeContainer>
       <Imagenes src={hands_swap} alt='swap-hands'></Imagenes>
       <Logo>
@@ -586,7 +584,6 @@ const Home = () => {
       </ContainerDiscover>
       <FooterOffline />
     </HomeContainer>
-    </ScrollContainer>
   );
 };
 

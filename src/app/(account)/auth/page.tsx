@@ -5,7 +5,6 @@ import styled from "styled-components";
 import LoginPage from "../../../components/auth/login/Login";
 import RegisterPage from "../../../components/auth/register/Register";
 import StyledNavLink from "@/src/components/ui/links/NavLinks";
-import ScrollContainer from "@/src/components/scroll/Scroll";
 import { FooterMain } from "@/src/components/footer/FooterMain";
 
 // Texto de cambio
@@ -202,7 +201,7 @@ export default function AuthPage() {
   const [isSignUp, setIsSignUp] = useState(false);
 
   return (
-    <ScrollContainer overflowY="auto"  overflowX='hidden' marginY='30px' style={{ height: '100%' }}>
+    <>
     <Container>
       {/* Framer Motion wrapper for form animations */}
       <motion.div
@@ -284,6 +283,6 @@ export default function AuthPage() {
       </OverlayContainer>
     </Container>
     <FooterMain/>
-    </ScrollContainer>
+    </>
   );
 }

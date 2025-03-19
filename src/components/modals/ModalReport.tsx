@@ -32,6 +32,7 @@ const ModalContainer = styled.div`
   background-color: white;
   width: 70%;
   height: 75%;
+  max-height: 410px;
   padding: 20px;
   position: relative;
   margin: 0;
@@ -57,6 +58,13 @@ const ModalHeader = styled.div`
 
   & div{
     font-weight: bold;
+    display: flex;
+  }
+
+  & article{
+    font-weight: bold;
+    font-style: normal;
+    color: #000000
   }
 `;
 
@@ -183,9 +191,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
         <ModalContainer>
         <ScrollContainer overflowY="auto" overflowX='auto' marginY="16px" style={{ maxHeight: '100%' }}>
           <ModalHeader>
-            <div>
-              SkillSwap Safety
-            </div>
+            <div>SkillSwap<article>.org</article></div>
             <ModalCloseButton onClick={onClose}>×</ModalCloseButton>
           </ModalHeader>
           <DivRoute>C:\ User\ Documents\ SafetyTips</DivRoute>

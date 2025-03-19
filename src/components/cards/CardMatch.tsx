@@ -18,6 +18,10 @@ const CardContainer = styled.div`
   > * {
     width: 100% !important;
   }
+
+  @media (max-width: 547px) {
+    max-height: 100% !important;
+  }
 `;
 
 const DivCardContent = styled.div`

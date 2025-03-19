@@ -2,7 +2,6 @@
 import React from 'react';
 import { NavbarAdmin } from '../../components/navbar/NavbarAdmin';
 import styled from 'styled-components';
-import ScrollContainer from '@/src/components/scroll/Scroll';
 import { Logobar } from '@/src/components/logobar/Logobar';
 
 const LayoutContainer = styled.div`
@@ -23,10 +22,8 @@ export default function UserLayout({ children }: { children: React.ReactNode }) 
         <LayoutContainer>
             <ContentContainer>
                 <NavbarAdmin />
-                <ScrollContainer overflowY="auto"  overflowX='auto' marginY='54px' style={{ height: '100%' }}>
                     {children}
                     <Logobar />
-                </ScrollContainer>
             </ContentContainer>
         </LayoutContainer>
     );

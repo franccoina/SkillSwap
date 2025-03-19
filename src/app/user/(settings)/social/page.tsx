@@ -22,15 +22,10 @@ const PageContainer = styled.section`
 
   & h1 {
     margin: 0;
-
     height: min-content;
-
     translate: 0 1rem;
-
     font-size: 70px;
-
     opacity: 0.15;
-
     padding-left: 1rem;
   }
 `;
@@ -70,11 +65,8 @@ const PagesContent = styled.div`
   & h2{
     font-size: 30px;
     background: ${({ theme }) => theme.colors.gradientSecondary};
-
     -webkit-background-clip: text;
-
     background-clip: text;
-
     -webkit-text-fill-color: transparent;
     margin: 1rem 0;
   }
@@ -343,7 +335,7 @@ const UserRequests = () => {
             <PagesContent>
               <ReportsText>
                 <h2>Reportes</h2>
-                <p>En este espacio podrás realizar reportes a usuarios con conductas inadecuadas.</p>
+                <p>En este espacio podrás realizar reportes a usuarios con conductas sospechosas o inadecuadas.</p>
               </ReportsText>
               <Reports>
                 <WidgetContainer>

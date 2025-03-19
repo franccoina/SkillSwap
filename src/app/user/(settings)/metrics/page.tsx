@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Modal from "../../../../components/modals/ModalSafety";
+import Modal from "../../../../components/modals/ModalTips";
 import { getRequestById } from "../../../api/requests"
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
@@ -134,7 +134,7 @@ const WidgetBody = styled.div`
   }
 `;
 
-const SecurityButton = styled.button`
+const TipsButton = styled.button`
   padding: 10px;
   font-size: 14px;
   width: 250px;
@@ -146,6 +146,7 @@ const SecurityButton = styled.button`
   border: none;
   color: ${({ theme }) => theme.colors.textWhite};
   transition: 0.6s ease-in-out;
+  align-self: end !important;
 
   &:hover {
     transition: 0.6s ease-in-out;
@@ -153,9 +154,9 @@ const SecurityButton = styled.button`
   }
 `;
 
-const DivSec = styled.div`
+const DivTips = styled.div`
   margin-top: 1.5rem;
-`
+`;
 
 interface IUserResponse {
   idUsuario: number;
@@ -258,15 +259,15 @@ const Metrics: React.FC = () => {
                   <p>Observa aquí los detalles estadísticos de tus solicitudes y conexiones. Manténte al tanto de tu red y sigue construyendo experiencias.</p>
                   <br />
                   {/* Gráfico de Barras (Bar Chart) */}
-                  <Bar data={barData} options={{ responsive: true }} /> 
+                  <Bar data={barData} options={{ responsive: true }} />
 
                   {/* Apartado de seguridad */}
                   <hr></hr>
-                  <DivSec>
-                    <h2>Seguridad</h2>
-                  </DivSec>
-                  <p>Aquí podrás ver información para mayor seguridad y protección a la hora de interactuar con otros usuarios.</p>
-                  <SecurityButton onClick={openModal}> ★ Tips de Seguridad</SecurityButton>
+                  <DivTips>
+                    <h2>Tips de actividad</h2>
+                  </DivTips>
+                  <p>Visualiza información valiosa sobre como orientar tu actividad en la plataforma. Los tips de <strong>SkillSwap</strong> son fundamentales para mayor seguridad, confianza y posibilidades a la hora de interactuar con otros usuarios.</p>
+                  <TipsButton onClick={openModal}> ★ Tips de Actividad</TipsButton>
                   <Modal isOpen={isModalOpen} onClose={closeModal} />
                 </WidgetBody>
               </PageBody>

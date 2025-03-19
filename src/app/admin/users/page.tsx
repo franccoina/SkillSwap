@@ -20,6 +20,10 @@ const Title = styled.h2`
   width: 50%;
   border-bottom: solid 2px ${({ theme }) => theme.colors.textBlack};
   color: ${({ theme }) => theme.colors.textBlack};
+
+  @media (max-width: 404px) {
+    font-size: 31px;
+  }
 `;
 
 const Div = styled.div`

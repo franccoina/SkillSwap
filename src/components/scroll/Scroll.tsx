@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 const StyledScrollContainer= styled(SimpleBar)<({marginY: string, overflowY: string, overflowX: string})>`
   height: 100%; 
+  width: 100%;
   background: transparent;
   overflow-y: ${(props) => props.overflowY};
   overflow-x: ${(props) => props.overflowX};

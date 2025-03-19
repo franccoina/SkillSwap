@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./GlobalStyling";
@@ -15,10 +14,9 @@ import { IGlobalTheme } from "../models/globalTheme.model";
 const LayoutContainer = styled.div`
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     margin: 0;         
     padding: 0;
-    overflow: hidden;
 `;
 
 const ClientLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {

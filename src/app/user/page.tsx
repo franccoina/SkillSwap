@@ -8,7 +8,7 @@ import hands_swap from "../../../public/img/hands-swap.webp";
 // ---------------------- Estilos para el contenedor principal ---------------------
 const HomeContainer = styled.div`
   padding: 0;
-  overflow: hidden !important; 
+  overflow-x: hidden !important; 
   padding-top: 74px;
   padding-bottom: 54px;
   background-color: ${({ theme }) => theme.colors.bgPrimary};

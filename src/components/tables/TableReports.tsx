@@ -3,20 +3,16 @@ import TableRow from "./TableRowReports";
 import { TableDataReports } from "../../models/admin.reports.model";
 import styled from "styled-components";
 import TableHeader from "./TableHeadReports";
-import ScrollContainer from "../scroll/Scroll";
 
 const TableContainer = styled.div`
   margin: 20px;
   margin-top: 2rem;
   background-color: white;
-  min-height: auto;
   height: 100%;
-  max-height: 400px;
   display: flex;
   flex-direction: column;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  overflow: hidden;
 `;
 
 const TableStyle = styled.table`
@@ -49,27 +45,25 @@ const Tr = styled.tr`
 const TableReports: React.FC<TableDataReports> = ({ data, setDataToEdit, deleteData }) => {
   return (
     <TableContainer>
-      <ScrollContainer overflowY="auto" overflowX='auto' marginY="14px" style={{ maxHeight: '100%' }}>
-        <TableStyle>
-          <TableHeader />
-          <tbody>
-            {data.length > 0 ? (
-              data.map((report) => (
-                <TableRow
-                  key={report.id}
-                  report={report}
-                  setDataToEdit={setDataToEdit}
-                  deleteData={deleteData}
-                />
-              ))
-            ) : (
-              <Tr>
-                <Td colSpan={7}>Sin datos</Td>
-              </Tr>
-            )}
-          </tbody>
-        </TableStyle>
-      </ScrollContainer>
+      <TableStyle>
+        <TableHeader />
+        <tbody>
+          {data.length > 0 ? (
+            data.map((report) => (
+              <TableRow
+                key={report.id}
+                report={report}
+                setDataToEdit={setDataToEdit}
+                deleteData={deleteData}
+              />
+            ))
+          ) : (
+            <Tr>
+              <Td colSpan={7}>Sin datos</Td>
+            </Tr>
+          )}
+        </tbody>
+      </TableStyle>
     </TableContainer>
   );
 };

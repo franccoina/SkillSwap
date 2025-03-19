@@ -24,12 +24,13 @@ const ModalContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.bgOrange};
   width: 60%;
   border-radius: 10px;
-  height: 55%;
+  height: 70%;
   border: 1px solid rgba(0, 0, 0, 0.2);
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-height: 416px;
 
   @media (max-width: 768px) {
     width: 90%;
@@ -51,6 +52,13 @@ const ModalHeader = styled.div`
 
   & div{
     font-weight: bold;
+    display: flex;
+  }
+
+  & article{
+    font-weight: bold;
+    font-style: normal;
+    color: #000000
   }
 `;
 
@@ -91,7 +99,6 @@ const LeftSection = styled.div`
   flex-direction: column;
   justify-content: start;
   padding: 1rem;
-  gap: 10px;
   width: 60%;
 
   @media (max-width: 768px) {
@@ -107,7 +114,7 @@ const RightSection = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 1rem 0;
-  gap: 20px;
+  gap: 10px;
   height: auto;
   width: 40%;
 
@@ -141,7 +148,7 @@ const TipItem = styled.div`
 
 const Icon = styled.div`
   filter: grayscale();
-  height: 100px;
+  height: 95px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -169,7 +176,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     <ModalOverlay>
       <ModalContainer>
         <ModalHeader>
-          <div>SkillSwap Safety</div>
+          <div>SkillSwap<article>.org</article></div>
           <ModalCloseButton onClick={onClose}>×</ModalCloseButton>
         </ModalHeader>
         <ScrollContainer overflowY="auto" overflowX='auto' marginY="16px" style={{ maxHeight: '100%' }}>
@@ -177,20 +184,20 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           <LeftSection>
             <TipItem>
             <Icon>📂</Icon>
-            <TipText><strong>Completar tu perfil</strong> aumenta la confianza entre usuarios y garantiza un <strong>ambiente seguro.</strong></TipText>
+            <TipText><strong>Completar tu perfil</strong> mantiene la confianza entre usuarios y un <strong>ambiente seguro.</strong></TipText>
             </TipItem>
             <TipItem>
               <Icon>📂</Icon>
-              <TipText>No compartas <strong>datos sensibles</strong>. La seguridad mutua es primero.</TipText>
+              <TipText>No compartas <strong>datos sensibles</strong>. La seguridad mutua primero.</TipText>
             </TipItem>
             <TipItem>
             <Icon>📂</Icon>
-            <TipText>Reporta cualquier comportamiento <strong>sospechoso o inadecuado</strong>.</TipText>
+            <TipText>Reporta cualquier conducta <strong>sospechosa o inadecuada</strong>.</TipText>
             </TipItem>
           </LeftSection>
           <RightSection>
             <article>
-              <span>🔵</span><AlertText>En tu <strong>Social</strong> podrás realizar <strong>Reportes</strong>.</AlertText>
+              <span>🔵</span><AlertText>En tu sección <strong>Social</strong> podrás realizar <strong>Reportes</strong>.</AlertText>
             </article>
             <article>
             <span>⚠️</span><AlertText>Si lo solicitas, acude a las <strong>autoridades policiales</strong>.</AlertText>

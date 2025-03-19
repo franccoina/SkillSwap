@@ -19,7 +19,7 @@ const OnlineSidebarContainer = styled.div`
     background: ${({ theme }) => theme.colors.bgMainOpacity};
     width: 100%;
     height: 100%;
-    animation: appear 1s ease;
+    animation: appear 1s ease-in-out;
     
     @keyframes appear {
         from {

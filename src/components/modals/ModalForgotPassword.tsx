@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import styled from "styled-components";
+import { toast } from "react-toastify";
 
 interface ModalPasswordRecoveryProps {
   isOpen: boolean;
@@ -55,7 +56,7 @@ const FormLabel = styled.label`
 const Input = styled.input`
   width: 100%;
   padding: 0.5rem;
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
   border-radius: 4px;
   border: 1px solid #ccc;
 `;
@@ -66,7 +67,7 @@ const SubmitButton = styled.button`
   margin-top: 1rem;
   background-color: #000;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
 `;
 
@@ -93,15 +94,15 @@ const ModalPasswordRecovery: React.FC<ModalPasswordRecoveryProps> = ({ isOpen, o
 
       const jsonResponse = await response.json();
       console.log('Correo enviado:', jsonResponse);
-      alert('Correo enviado correctamente');
+      toast.success('Correo enviado correctamente. Revisa tu bandeja de entrada.');
     } catch (error: unknown) {
-      let errorMessage = 'Ocurrió un error desconocido';
+      let errorMessage = 'Ocurrió un error desconocido.';
 
       if (error instanceof Error) {
         errorMessage = error.message;
       }
 
-      alert(`Error al enviar el correo: ${errorMessage}`);
+      toast.error(`Error al enviar correo: ${errorMessage}`);
     }
   };
 

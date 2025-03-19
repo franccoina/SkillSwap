@@ -21,6 +21,7 @@ export const DivUserData = styled.div`
   text-align: start;
   justify-content: center;
   align-items: center;
+  
   @media (max-width: 768px) {
     padding: 0;
   }
